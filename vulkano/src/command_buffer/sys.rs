@@ -1965,10 +1965,10 @@ pub struct UnsafeCommandBufferBuilderWaitEvents {
 }
 
 impl UnsafeCommandBufferBuilderWaitEvents {
-    /// Returns true if no barrier or execution dependency has been added yet.
+    /// Returns true if no barrier, execution dependency or Event has been added yet.
     #[inline]
     pub fn is_empty(&self) -> bool {
-        self.src_stage_mask == 0 || self.dst_stage_mask == 0
+        self.src_stage_mask == 0 || self.dst_stage_mask == 0 || self.events.len() == 0
     }
 
     /// Merges another pipeline builder into this one.
